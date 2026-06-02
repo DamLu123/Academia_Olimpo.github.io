@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Crear Cuenta</title>
+
+<link rel="stylesheet" href="css/login.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card registro">
+
+        <h1>Crear Cuenta</h1>
+
+        <form id="registroForm">
+
+            <div class="input-group">
+                <label>Nombre Completo</label>
+                <input type="text" required>
+            </div>
+
+            <div class="input-group">
+                <label>Correo</label>
+                <input type="email" required>
+            </div>
+
+            <div class="input-group">
+                <label>Usuario</label>
+                <input type="text" id="nuevoUsuario" required>
+            </div>
+
+            <div class="input-group">
+                <label>Contraseña</label>
+                <input type="password" id="nuevaPassword" required>
+            </div>
+
+            <div class="input-group">
+                <label>Confirmar Contraseña</label>
+                <input type="password" id="confirmarPassword" required>
+            </div>
+
+            <div class="input-group">
+                <label>Rol</label>
+
+                <select>
+                    <option>Secretaria</option>
+                    <option>Director</option>
+                </select>
+
+            </div>
+
+            <button type="submit">
+                Registrarse
+            </button>
+
+        </form>
+
+        <p class="volver">
+            <a href="login.html">Volver al Login</a>
+        </p>
+
+    </div>
+
+</div>
+
+<script src="js/login.js"></script>
+
+</body>
+</html>

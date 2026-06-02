@@ -1,0 +1,137 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:
+linear-gradient(
+135deg,
+#111111,
+#1d1d1d,
+#d90429
+);
+}
+
+.container{
+width:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.card{
+background:white;
+width:400px;
+padding:40px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,.3);
+animation:entrada .8s ease;
+}
+
+.registro{
+width:500px;
+}
+
+@keyframes entrada{
+
+from{
+opacity:0;
+transform:translateY(50px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+.card h1{
+text-align:center;
+color:#111;
+margin-bottom:10px;
+}
+
+.card p{
+text-align:center;
+margin-bottom:20px;
+color:#666;
+}
+
+.input-group{
+display:flex;
+flex-direction:column;
+margin-bottom:15px;
+}
+
+.input-group label{
+margin-bottom:6px;
+font-weight:600;
+}
+
+.input-group input,
+.input-group select{
+padding:12px;
+border:1px solid #ccc;
+border-radius:10px;
+outline:none;
+}
+
+.input-group input:focus,
+.input-group select:focus{
+border-color:#d90429;
+}
+
+button{
+width:100%;
+padding:14px;
+background:#d90429;
+color:white;
+border:none;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:#ef233c;
+}
+
+.extra{
+margin-top:20px;
+text-align:center;
+}
+
+.extra a{
+text-decoration:none;
+color:#d90429;
+font-weight:600;
+}
+
+.volver{
+margin-top:15px;
+}
+
+.volver a{
+text-decoration:none;
+color:#d90429;
+font-weight:600;
+}
+
+@media(max-width:600px){
+
+.card,
+.registro{
+width:100%;
+}
+
+}

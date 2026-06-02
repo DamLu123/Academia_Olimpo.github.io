@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard | Academia El Olimpo</title>
+
+<link rel="stylesheet" href="css/dashboard.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>OLIMPO</h2>
+        </div>
+
+        <ul>
+
+            <li class="active" onclick="mostrarSeccion('dashboard')">
+                <i class="fas fa-chart-line"></i>
+                Dashboard
+            </li>
+
+            <li onclick="mostrarSeccion('contenido')">
+                <i class="fas fa-file-alt"></i>
+                Contenido
+            </li>
+
+            <li onclick="mostrarSeccion('calendario')">
+                <i class="fas fa-calendar"></i>
+                Calendario
+            </li>
+
+            <li onclick="mostrarSeccion('reportes')">
+                <i class="fas fa-chart-bar"></i>
+                Reportes
+            </li>
+
+            <li onclick="mostrarSeccion('aprobaciones')">
+                <i class="fas fa-check-circle"></i>
+                Aprobaciones
+            </li>
+
+            <li onclick="mostrarSeccion('usuarios')">
+                <i class="fas fa-users"></i>
+                Usuarios
+            </li>
+
+            <li onclick="cerrarSesion()">
+                <i class="fas fa-sign-out-alt"></i>
+                Cerrar Sesión
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- CONTENIDO -->
+
+    <main class="content">
+
+        <header>
+
+            <h1>Academia El Olimpo</h1>
+
+            <div class="user">
+                Director
+            </div>
+
+        </header>
+
+        <!-- DASHBOARD -->
+
+        <section id="dashboard" class="seccion">
+
+            <h2>Resumen General</h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>125</h3>
+                    <p>Publicaciones</p>
+                </div>
+
+                <div class="card">
+                    <h3>18</h3>
+                    <p>Pendientes</p>
+                </div>
+
+                <div class="card">
+                    <h3>96</h3>
+                    <p>Aprobadas</p>
+                </div>
+
+                <div class="card">
+                    <h3>2.5K</h3>
+                    <p>Alcance</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CONTENIDO -->
+        <section id="contenido" class="seccion oculto">
+
+    <h2>Gestión de Contenido</h2>
+
+    <button class="btn" onclick="abrirModal()">
+        + Nueva Publicación
+    </button>
+
+    <table id="tablaContenido">
+
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+</section>
+            
+
+        <!-- CALENDARIO -->
+
+        <section id="calendario" class="seccion oculto">
+
+    <h2>Calendario Académico</h2>
+
+    <button class="btn" onclick="abrirModalEvento()">
+        + Nuevo Evento
+    </button>
+
+    <table id="tablaEventos">
+
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Evento</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+</section>
+
+        <!-- REPORTES -->
+
+        <section id="reportes" class="seccion oculto">
+
+            <h2>Reportes</h2>
+
+            <div class="grafico">
+
+                <div class="barra barra1">
+                    Facebook 80%
+                </div>
+
+                <div class="barra barra2">
+                    Instagram 65%
+                </div>
+
+                <div class="barra barra3">
+                    TikTok 90%
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- APROBACIONES -->
+
+        <section id="aprobaciones" class="seccion oculto">
+
+            <h2>Solicitudes Pendientes</h2>
+
+            <div class="solicitud">
+
+                Publicación Simulacro
+
+                <button>Aprobar</button>
+                <button>Rechazar</button>
+
+            </div>
+
+        </section>
+
+        <!-- USUARIOS -->
+
+        <section id="usuarios" class="seccion oculto">
+
+            <h2>Usuarios</h2>
+
+            <table>
+
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cargo</th>
+                </tr>
+
+                <tr>
+                    <td>Director</td>
+                    <td>Administrador</td>
+                </tr>
+
+                <tr>
+                    <td>Ana</td>
+                    <td>Secretaria</td>
+                </tr>
+
+                <tr>
+                    <td>Luis</td>
+                    <td>Secretario</td>
+                </tr>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+<div class="modal" id="modal">
+
+    <div class="modal-content">
+
+        <h2>Nueva Publicación</h2>
+
+        <input
+            type="text"
+            id="titulo"
+            placeholder="Título">
+
+        <textarea
+            id="descripcion"
+            placeholder="Descripción"></textarea>
+
+        <input
+            type="date"
+            id="fecha">
+
+        <div class="acciones">
+
+            <button onclick="guardarPublicacion()">
+                Guardar
+            </button>
+
+            <button onclick="cerrarModal()">
+                Cancelar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="modal" id="modalEvento">
+
+    <div class="modal-content">
+
+        <h2>Nuevo Evento</h2>
+
+        <input
+            type="date"
+            id="fechaEvento">
+
+        <input
+            type="text"
+            id="nombreEvento"
+            placeholder="Nombre del evento">
+
+        <div class="acciones">
+
+            <button onclick="guardarEvento()">
+                Guardar
+            </button>
+
+            <button onclick="cerrarModalEvento()">
+                Cancelar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>
