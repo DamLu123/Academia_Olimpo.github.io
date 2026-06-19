@@ -33,27 +33,27 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 Dashboard
             </li>
 
-            <li onclick="mostrarSeccion('contenido')">
+            <li onclick="mostrarSeccion('contenido', event)">
                 <i class="fas fa-file-alt"></i>
                 Contenido
             </li>
 
-            <li onclick="mostrarSeccion('calendario')">
+            <li onclick="mostrarSeccion('calendario', event)">
                 <i class="fas fa-calendar"></i>
                 Calendario
             </li>
 
-            <li onclick="mostrarSeccion('reportes')">
-                <i class="fas fa-chart-bar"></i>
-                Reportes
+            <li onclick="mostrarSeccion('historial', event)">
+                <i class="fas fa-history"></i>
+                Historial
             </li>
 
-            <li onclick="mostrarSeccion('aprobaciones')">
+            <li onclick="mostrarSeccion('aprobaciones', event)">
                 <i class="fas fa-check-circle"></i>
                 Aprobaciones
             </li>
 
-            <li onclick="mostrarSeccion('usuarios')">
+            <li onclick="mostrarSeccion('usuarios', event)">
                 <i class="fas fa-users"></i>
                 Usuarios
             </li>
@@ -113,8 +113,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
         </section>
 
-        <!-- CONTENIDO -->
-        <section id="contenido" class="seccion oculto">
+     <!-- CONTENIDO -->
+<section id="contenido" class="seccion oculto">
 
     <h2>Gestión de Contenido</h2>
 
@@ -128,19 +128,69 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
             <tr>
                 <th>Título</th>
                 <th>Descripción</th>
+                <th>Archivo</th>
+                <th>Plataforma</th>
+                <th>Estado</th>
                 <th>Fecha</th>
                 <th>Acciones</th>
             </tr>
         </thead>
 
         <tbody>
-
+            <!-- publicaciones dinámicas -->
         </tbody>
 
     </table>
 
 </section>
-            
+
+
+<!-- MODAL: NUEVA PUBLICACIÓN -->
+<div class="modal" id="modal">
+
+    <div class="modal-content">
+
+        <h2>Nueva Publicación</h2>
+
+        <!-- TÍTULO -->
+        <input type="text" id="titulo" placeholder="Título">
+
+        <!-- DESCRIPCIÓN -->
+        <textarea id="descripcion" placeholder="Descripción"></textarea>
+
+        <!-- ARCHIVO -->
+        <label>Archivo:</label>
+        <input type="file" id="archivo">
+
+        <!-- PLATAFORMA -->
+        <label>Plataforma:</label>
+        <select id="plataforma">
+            <option value="Facebook">Facebook</option>
+            <option value="Instagram">Instagram</option>
+            <option value="TikTok">TikTok</option>
+            <option value="Web">Web</option>
+        </select>
+
+        <!-- FECHA -->
+        <label>Fecha:</label>
+        <input type="date" id="fecha">
+
+        <!-- BOTONES -->
+        <div class="acciones">
+
+            <button onclick="guardarPublicacion()">
+                Guardar
+            </button>
+
+            <button onclick="cerrarModal()">
+                Cancelar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
 
         <!-- CALENDARIO -->
 
@@ -170,29 +220,16 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 </section>
 
-        <!-- REPORTES -->
+       <!-- HISTORIAL -->
+<section id="historial" class="seccion oculto">
 
-        <section id="reportes" class="seccion oculto">
+    <h2>Historial de Publicaciones</h2>
 
-            <h2>Reportes</h2>
+    <div id="contenedorHistorial" class="historial-grid">
 
-            <div class="grafico">
+    </div>
 
-                <div class="barra barra1">
-                    Facebook 80%
-                </div>
-
-                <div class="barra barra2">
-                    Instagram 65%
-                </div>
-
-                <div class="barra barra3">
-                    TikTok 90%
-                </div>
-
-            </div>
-
-        </section>
+</section>
 
         <!-- APROBACIONES -->
 
@@ -253,17 +290,23 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         <h2>Nueva Publicación</h2>
 
         <input
-            type="text"
-            id="titulo"
-            placeholder="Título">
+        type="text"
+        id="titulo"
+        placeholder="Título">
 
         <textarea
-            id="descripcion"
-            placeholder="Descripción"></textarea>
+        id="descripcion"
+        placeholder="Descripción"></textarea>
+
+        <label>Seleccionar archivo:</label>
 
         <input
-            type="date"
-            id="fecha">
+        type="file"
+        id="archivo">
+
+        <input
+        type="date"
+        id="fecha">
 
         <div class="acciones">
 
